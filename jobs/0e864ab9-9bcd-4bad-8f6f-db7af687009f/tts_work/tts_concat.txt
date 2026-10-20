@@ -1,0 +1,3 @@
+file '/app/jobs/0e864ab9-9bcd-4bad-8f6f-db7af687009f/tts_work/tts_scene_001.wav'
+file '/app/jobs/0e864ab9-9bcd-4bad-8f6f-db7af687009f/tts_work/tts_scene_002.wav'
+file '/app/jobs/0e864ab9-9bcd-4bad-8f6f-db7af687009f/tts_work/tts_scene_003.wav'

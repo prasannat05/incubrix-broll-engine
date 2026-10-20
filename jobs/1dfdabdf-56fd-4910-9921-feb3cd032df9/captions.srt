@@ -1,0 +1,16 @@
+1
+00:00:00,000 --> 00:00:06,670
+Renewable energy is becoming one of the most important solutions for a sustainable future.
+
+2
+00:00:06,670 --> 00:00:15,310
+Solar panels, wind turbines, and hydroelectric power generate electricity while reducing carbon emissions.
+
+3
+00:00:15,310 --> 00:00:24,140
+Countries around the world are investing in clean energy to protect the environment and reduce dependence on fossil fuels.
+
+4
+00:00:24,140 --> 00:00:33,000
+With continued innovation and global cooperation, renewable energy can power future generations safely and efficiently.
+

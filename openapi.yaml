@@ -1,0 +1,131 @@
+openapi: 3.1.0
+info:
+  title: IncuBrix B-Roll Video Engine API
+  version: 1.0.0
+  description: REST API that converts plain-text scripts or voiceover audio (.mp3/.wav) into synchronized B-roll MP4 videos with SRT subtitles, scene timelines, and license manifests.
+servers:
+  - url: http://localhost:8000
+    description: Local Development & Docker Backend Server
+paths:
+  /health:
+    get:
+      summary: Health Check
+      operationId: healthCheck
+      responses:
+        "200":
+          description: Service is healthy
+  /generate:
+    post:
+      summary: Submit Script or Audio for B-Roll Video Generation
+      operationId: generateVideo
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                script:
+                  oneOf:
+                    - type: string
+                      format: binary
+                      description: Plain text script file (script.txt)
+                    - type: string
+                      description: Plain text script content
+                audio:
+                  type: string
+                  format: binary
+                  description: Voice recording (.mp3 or .wav)
+      responses:
+        "202":
+          description: Job queued successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GenerateResponse"
+        "400":
+          description: Unsupported file format or audio exceeds duration limit
+  /status/{job_id}:
+    get:
+      summary: Get Job Status & Progress
+      operationId: getJobStatus
+      parameters:
+        - name: job_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Current job status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobStatusResponse"
+        "404":
+          description: Job ID not found
+  /result/{job_id}:
+    get:
+      summary: Retrieve Generated Video, Captions, Timeline & Manifest
+      operationId: getJobResult
+      parameters:
+        - name: job_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: file
+          in: query
+          required: false
+          description: "Artifact to download directly: video, captions, timeline, manifest, logs, or zip"
+          schema:
+            type: string
+            enum: [video, captions, timeline, manifest, logs, zip]
+      responses:
+        "200":
+          description: JSON metadata summary with download links or binary file stream
+        "404":
+          description: Job or artifact not found
+        "409":
+          description: Job has not completed yet
+components:
+  schemas:
+    GenerateResponse:
+      type: object
+      required: [job_id, status, message]
+      properties:
+        job_id:
+          type: string
+        status:
+          type: string
+          enum: [queued, processing, completed, failed]
+        message:
+          type: string
+    JobStatusResponse:
+      type: object
+      required: [job_id, status, progress, current_step, input_type, created_at, updated_at]
+      properties:
+        job_id:
+          type: string
+        status:
+          type: string
+          enum: [queued, processing, completed, failed]
+        progress:
+          type: integer
+          minimum: 0
+          maximum: 100
+        current_step:
+          type: string
+        input_type:
+          type: string
+          enum: [script, audio]
+        created_at:
+          type: string
+        updated_at:
+          type: string
+        error_code:
+          type: string
+          nullable: true
+        error_message:
+          type: string
+          nullable: true

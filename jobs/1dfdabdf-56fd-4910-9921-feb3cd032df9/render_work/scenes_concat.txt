@@ -1,0 +1,4 @@
+file '/app/jobs/1dfdabdf-56fd-4910-9921-feb3cd032df9/render_work/norm_scene_001.mp4'
+file '/app/jobs/1dfdabdf-56fd-4910-9921-feb3cd032df9/render_work/norm_scene_002.mp4'
+file '/app/jobs/1dfdabdf-56fd-4910-9921-feb3cd032df9/render_work/norm_scene_003.mp4'
+file '/app/jobs/1dfdabdf-56fd-4910-9921-feb3cd032df9/render_work/norm_scene_004.mp4'
