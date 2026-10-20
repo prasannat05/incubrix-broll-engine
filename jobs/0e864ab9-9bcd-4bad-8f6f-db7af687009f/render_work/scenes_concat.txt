@@ -1,3 +1,0 @@
-file '/app/jobs/0e864ab9-9bcd-4bad-8f6f-db7af687009f/render_work/norm_scene_001.mp4'
-file '/app/jobs/0e864ab9-9bcd-4bad-8f6f-db7af687009f/render_work/norm_scene_002.mp4'
-file '/app/jobs/0e864ab9-9bcd-4bad-8f6f-db7af687009f/render_work/norm_scene_003.mp4'

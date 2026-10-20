@@ -1,4 +1,0 @@
-file '/app/jobs/1dfdabdf-56fd-4910-9921-feb3cd032df9/tts_work/tts_scene_001.wav'
-file '/app/jobs/1dfdabdf-56fd-4910-9921-feb3cd032df9/tts_work/tts_scene_002.wav'
-file '/app/jobs/1dfdabdf-56fd-4910-9921-feb3cd032df9/tts_work/tts_scene_003.wav'
-file '/app/jobs/1dfdabdf-56fd-4910-9921-feb3cd032df9/tts_work/tts_scene_004.wav'
